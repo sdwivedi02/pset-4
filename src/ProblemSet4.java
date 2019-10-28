@@ -313,9 +313,39 @@ public class ProblemSet4 {
      * Super Mario-style full pyramid of the specified height.
      */
 
-    public void luigi() {
+     public void luigi() {
+         System.out.print("\nHeight: ");
+         int height = in.nextInt();
 
-    }
+         while (height < 1 || height > 24) {
+             System.out.print("Height: ");
+             height = in.nextInt();
+         }
+
+         System.out.print("\n");
+
+         String output = "";
+         int x = height;
+         String y = " ";
+         String z = "#";
+
+         for (int i = 0; i < height; i++) {
+             for (int j = 0; j < height - (i + 1); j++) {
+                 output += y;
+             }
+             for (int j = 0; j <= i + 1; j++) {
+                 output += z;
+             }
+             output += y;
+             output += y;
+             for (int j = 0; j <= i + 1; j++) {
+                 output += z;
+             }
+             output += "\n";
+         }
+
+         System.out.print(output);
+     }
 
     /*
      * Exercise 10.
@@ -324,7 +354,42 @@ public class ProblemSet4 {
      * Luhn's algorithm, is the credit card number valid?
      */
 
-    public void credit() {
+     public void credit() { in .nextLine();
+         System.out.print("\nNumber: ");
+         String number = in.nextLine();
+         int sumOfEveryOtherDigit = 0;
+         int multiplyingDigit;
+         int finalSum = 0;
 
-    }
+         for (int i = number.length() - 2; i >= 0; i -= 2) {
+             multiplyingDigit = Character.getNumericValue(number.charAt(i));
+             sumOfEveryOtherDigit = multiplyingDigit * 2;
+             if (sumOfEveryOtherDigit >= 10) {
+                 finalSum += (int)((sumOfEveryOtherDigit / Math.pow(10, 0)) % 10)
+                 + (int)((sumOfEveryOtherDigit / Math.pow(10, 1)) % 10);
+             } else {
+                 finalSum += sumOfEveryOtherDigit;
+             }
+         }
+
+         for (int i = number.length() - 1; i >= 0; i -= 2) {
+             multiplyingDigit = Character.getNumericValue(number.charAt(i));
+             finalSum += multiplyingDigit;
+         }
+
+         String stringOfEveryOtherDigit = Integer.toString(finalSum);
+         if (stringOfEveryOtherDigit.charAt(stringOfEveryOtherDigit.length() - 1) == '0') {
+             if (number.charAt(0) == '3' && (number.charAt(1) == '4' || number.charAt(1) == '7')) {
+                 System.out.println("\nAmex.\n");
+             } else if (number.charAt(0) == '5' && (number.charAt(1) == '1' || number.charAt(1) ==
+             '2' || number.charAt(3) == '3' || number.charAt(4) == '4' || number.charAt(5) == '5')) {
+                 System.out.println("\nMastercard.\n");
+             } else if (number.charAt(0) == '4') {
+                 System.out.println("\nVisa.\n");
+             }
+         } else {
+             System.out.println("\nInvalid.\n");
+         }
+     }
+ }
 }
