@@ -238,9 +238,37 @@ public class ProblemSet4 {
      * Prompt the user to enter a positive integer. What are its factors?
      */
 
-    public void factors() {
+     public void factors() {
+         System.out.print("\nPositive integer: ");
+         int integer = in.nextInt();
 
-    }
+         while (integer <= 0) {
+             System.out.print("Positive integer: ");
+             integer = in.nextInt();
+         }
+
+         System.out.print("\n");
+
+         for (int i = 1; i <= integer / 2; i++) {
+             if (integer % i == 0) {
+                 if (i > integer / i) {
+                     System.out.print(".\n\n");
+                     return;
+                 } else {
+                     if (i == 1) {
+                         System.out.print(i + ", " + (integer / i));
+                     } else {
+                         if (i != (integer / i)) {
+                             System.out.print(", " + i + ", " + (integer / i));
+                         } else {
+                             System.out.print(", " + i + ".\n\n");
+                             return;
+                           }
+                         }
+                       }
+                     }
+                   }
+                 }
 
     /*
      * Exercise 8.
@@ -249,9 +277,34 @@ public class ProblemSet4 {
      * Mario-style half-pyramid of the specified height.
      */
 
-    public void mario() {
+     public void mario() {
+         System.out.print("Height: ");
+         int height = in.nextInt();
 
-    }
+         while (height < 1 || height > 24) {
+             System.out.print("Height: ");
+             height = in.nextInt();
+         }
+
+         System.out.print("\n");
+
+         String output = "";
+         int x = height;
+         String y = " ";
+         String z = "#";
+
+         for (int i = 0; i < x; i++) {
+             for (int j = 0; j < x - (i + 1); j++) {
+                 output = output + y;
+             }
+             for (int k = 0; k < i + 2; k++) {
+                 output = output + z;
+             }
+             output = output + '\n';
+         }
+         System.out.print(output);
+
+     }
 
     /*
      * Exercise 9.
