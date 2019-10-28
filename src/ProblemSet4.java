@@ -59,13 +59,13 @@ public class ProblemSet4 {
          System.out.print("\nLower bound: ");
          lowerBound = in .nextInt();
          System.out.print("Upper bound: ");
-         upperBound = in .nextInt();
+         upperBound = in.nextInt();
 
          while (lowerBound > upperBound) {
              System.out.print("Lower bound: ");
-             lowerBound = in .nextInt();
+             lowerBound = in.nextInt();
              System.out.print("Upper bound: ");
-             upperBound = in .nextInt();
+             upperBound = in.nextInt();
          }
 
          for (int i = lowerBound; i <= upperBound; i++) {
@@ -91,11 +91,11 @@ public class ProblemSet4 {
          String separatedDigits = "";
          String digit = "";
          System.out.print("\nPositive integer: ");
-         integer = in .nextInt();
+         integer = in.nextInt();
 
          while (integer <= 0) {
              System.out.print("Positive integer: ");
-             integer = in .nextInt();
+             integer = in nextInt();
          }
 
          String intAsString = String.format("%d", integer);
@@ -121,9 +121,29 @@ public class ProblemSet4 {
      * digits in the integer.
      */
 
-    public void digits() {
+     public void digits() {
+         int integer;
+         int digit;
+         int sum = 0;
+         System.out.print("\nPositive integer: ");
+         integer = in.nextInt();
 
-    }
+         while (integer <= 0) {
+             System.out.print("Positive integer: ");
+             integer = in.nextInt();
+         }
+
+         String intAsString = String.format("%d", integer);
+         char[] digitsArray = intAsString.toCharArray();
+
+         for (int i = 0; i < intAsString.length(); i++) {
+             if (digitsArray[i] % 2 == 1) {
+                 digit = Character.getNumericValue(digitsArray[i]);
+                 sum += digit;
+             }
+         }
+         System.out.println("\n" + sum + ".\n");
+     }
 
     /*
      * Exercise 4.
@@ -133,9 +153,26 @@ public class ProblemSet4 {
      * What is the average of the values entered?
      */
 
-    public void average() {
+     public void average() {
+         ArrayList < Integer > integerArray = new ArrayList < Integer > ();
+         int enteredNumber;
+         int i = 0;
+         int sum = 0;
+         integerArray.add(0);
+         while (integerArray.get(i) >= 0) {
+             System.out.print("Non-negative integer: ");
+             enteredNumber = in .nextInt();
+             integerArray.add(enteredNumber);
+             i++;
+         }
 
-    }
+         for (int j = 0; j < integerArray.size() - 1; j++) {
+             sum += integerArray.get(j);
+         }
+         int arraySize = integerArray.size() - 2;
+         double average = (double) sum / (double) arraySize;
+         System.out.printf("\n%,.2f\n", average);
+     }
 
     /*
      * Exercise 5.
