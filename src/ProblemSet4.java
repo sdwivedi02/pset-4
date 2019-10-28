@@ -180,9 +180,28 @@ public class ProblemSet4 {
      * Prompt the user to enter a non-negative integer. Is this number prime?
      */
 
-    public void prime() {
+     public void prime() {
+         int number;
+         boolean prime = true;
+         System.out.print("\nNon-negative integer: ");
+         number = in.nextInt();
 
-    }
+         while (numberTested <= 0) {
+             System.out.print("Non-negative integer: ");
+             number = in.nextInt();
+         }
+
+         for (int i = 2; i <= number / 2; i++) {
+             if (number % i == 0) {
+                 prime = false;
+             }
+         }
+         if (prime) {
+             System.out.println("\nPrime.");
+         } else {
+             System.out.println("\nNot prime.");
+         }
+     }
 
     /*
      * Exercise 6.
@@ -191,9 +210,27 @@ public class ProblemSet4 {
      * integer the user enters is called n, what is the nth Fibonacci number?
      */
 
-    public void fibonacci() {
+     public void fibonacci() {
+         int fibonacciNumber;
+         System.out.print("\nPositive integer: ");
+         fibonacciNumber = in.nextInt();
 
-    }
+         while (fibonacciNumber <= 0 || fibonacciNumber > 92) {
+             System.out.print("Positive integer: ");
+             fibonacciNumber = in.nextInt();
+         }
+
+         long base1 = 0;
+         long base2 = 1;
+         long fibonacci = 0;
+
+         for (int i = 2; i <= fibonacciNumber; i++) {
+             fibonacci = base1 + base2;
+             base1 = base2;
+             base2 = fibonacci;
+         }
+         System.out.println("\n" + base2 + ".");
+     }
 
     /*
      * Exercise 7.
