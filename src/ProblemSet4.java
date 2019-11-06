@@ -17,6 +17,7 @@
  */
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class ProblemSet4 {
 
@@ -95,7 +96,7 @@ public class ProblemSet4 {
 
          while (integer <= 0) {
              System.out.print("Positive integer: ");
-             integer = in nextInt();
+             integer = in.nextInt();
          }
 
          String intAsString = String.format("%d", integer);
@@ -186,7 +187,7 @@ public class ProblemSet4 {
          System.out.print("\nNon-negative integer: ");
          number = in.nextInt();
 
-         while (numberTested <= 0) {
+         while (number <= 0) {
              System.out.print("Non-negative integer: ");
              number = in.nextInt();
          }
@@ -250,25 +251,25 @@ public class ProblemSet4 {
          System.out.print("\n");
 
          for (int i = 1; i <= integer / 2; i++) {
-             if (integer % i == 0) {
-                 if (i > integer / i) {
-                     System.out.print(".\n\n");
-                     return;
-                 } else {
-                     if (i == 1) {
-                         System.out.print(i + ", " + (integer / i));
+            if (integer % i == 0) {
+               if (i > integer / i) {
+                  System.out.print(".\n\n");
+                  return;
+               } else {
+                  if (i == 1) {
+                     System.out.print(i + ", " + (integer / i));
+                  } else {
+                     if (i != (integer / i)) {
+                        System.out.print(", " + i + ", " + (integer / i));
                      } else {
-                         if (i != (integer / i)) {
-                             System.out.print(", " + i + ", " + (integer / i));
-                         } else {
-                             System.out.print(", " + i + ".\n\n");
-                             return;
-                           }
-                         }
-                       }
+                        System.out.print(", " + i + ".\n\n");
+                        return;
                      }
-                   }
-                 }
+                  }
+               }
+            }
+         }
+     }
 
     /*
      * Exercise 8.
@@ -354,7 +355,8 @@ public class ProblemSet4 {
      * Luhn's algorithm, is the credit card number valid?
      */
 
-     public void credit() { in .nextLine();
+     public void credit() {
+       in .nextLine();
          System.out.print("\nNumber: ");
          String number = in.nextLine();
          int sumOfEveryOtherDigit = 0;
@@ -391,5 +393,4 @@ public class ProblemSet4 {
              System.out.println("\nInvalid.\n");
          }
      }
- }
 }
